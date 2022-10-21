@@ -41,7 +41,6 @@ public class FlServiceImpl {
                     "\"" + pyflPath + "\" -d " +
                     "\"" + projectPath + "\"" + " -cg";
     }
-        System.out.println(command);
         return executeCommand(command);
     }
 
