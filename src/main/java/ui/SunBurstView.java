@@ -22,7 +22,7 @@ public class SunBurstView extends DialogWrapper {
     @Nullable
     @Override
     protected JComponent createCenterPanel() {
-        String url = ProjectModule.getProjectPath() + "\\static_call_graph.html";
+        String url = ProjectModule.getProjectPath() + "\\sunburst.html";
         return new JBCefBrowser(url).getComponent();
 
     }
