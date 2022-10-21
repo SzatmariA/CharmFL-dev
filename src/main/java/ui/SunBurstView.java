@@ -10,11 +10,11 @@ import modules.ProjectModule;
 import com.intellij.ui.jcef.*;
 import services.Resources;
 
-public class ViewSunBurst extends DialogWrapper {
+public class SunBurstView extends DialogWrapper {
 
-    public ViewSunBurst() {
+    public SunBurstView() {
         super(true);
-        setTitle(Resources.get("titles", "sunburst_title"));
+        setTitle(Resources.get("titles", "sun_burst_title"));
         setModal(false);
         init();
     }
@@ -22,7 +22,7 @@ public class ViewSunBurst extends DialogWrapper {
     @Nullable
     @Override
     protected JComponent createCenterPanel() {
-        String url = ProjectModule.getProjectPath() + "\\sunburst.html";
+        String url = ProjectModule.getProjectPath() + "\\static_call_graph.html";
         return new JBCefBrowser(url).getComponent();
 
     }
