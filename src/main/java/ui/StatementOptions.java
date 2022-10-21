@@ -113,7 +113,7 @@ public class StatementOptions extends DialogWrapper {
                     }
                 }
             }
-            new CallGraphHighlightedView().show();
+            new CallGraphView().show();
         });
 
 
