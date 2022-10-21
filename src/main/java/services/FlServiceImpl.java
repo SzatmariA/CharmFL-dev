@@ -39,7 +39,6 @@ public class FlServiceImpl {
         if (SystemUtils.IS_OS_WINDOWS) {
             command = "\"" + pythonBinPath + "\" " + "\"" + callGraphScriptName + "\" " + "\"" + projectPath + "\" " + "\"" + mainFileName + "\" " + " -cg";
     }
-
         return executeCommand(command);
     }
 
@@ -78,6 +77,28 @@ public class FlServiceImpl {
             command = pythonBinPath.replaceAll(" ", "\\ ") + " " +
                     pyflPath.replaceAll(" ", "\\ ") + " -d " +
                     projectPath.replaceAll(" ", "\\ ") + " -fl";
+        }
+        return executeCommand(command);
+    }
+
+    /**
+     * This calls the subprocess which executed the main.py
+     * @param pythonBinPath
+     * @param pyflPath
+     * @param projectPath
+     * @return
+     */
+    public ProcessResultData executeSunBurst(String pythonBinPath, String pyflPath, String projectPath) {
+        String command = "";
+        if (SystemUtils.IS_OS_WINDOWS) {
+            command = "\"" + pythonBinPath + "\" " +
+                    "\"" + pyflPath + "\" -d " +
+                    "\"" + projectPath + "\"" +
+                    " -vs";
+        } else if (SystemUtils.IS_OS_LINUX) {
+            command = pythonBinPath.replaceAll(" ", "\\ ") + " " +
+                    pyflPath.replaceAll(" ", "\\ ") + " -d " +
+                    projectPath.replaceAll(" ", "\\ ") + " -vs";
         }
         return executeCommand(command);
     }

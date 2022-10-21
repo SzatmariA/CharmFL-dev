@@ -11,6 +11,7 @@ from utils.Result_Builder import Result_Builder
 
 
 # import call_graphs.statical_call_graph as cg
+import sunburst_visualization.sunburst as vs
 
 from constans import COVERAGE_RC_FILE_NAME
 from error_codes import FAILED_COPY_COVERAGE_RC_FILE, FAILED_WRITE_PROJECT_COVERAGE_RC_FILE
@@ -35,6 +36,8 @@ def main():
     parser.add_argument("-s", "--spectrum", action="store", metavar="SPECTRUM", help="To get the spectrum.")
     parser.add_argument("-h", "--help", action="help", help="Show this help message.")
     parser.add_argument("-v", "--version", action="version", help="Show version number.")
+    parser.add_argument("-vs", "--SunBurst", help="To visalize the sunburst chart", action="store_true")
+
 
     args = vars(parser.parse_args())
     plugin_path = os.path.dirname(os.path.abspath(__file__))
@@ -76,6 +79,10 @@ def main():
     if (args["CallGraph"] == True):
         call_graph = cg.StaticalCallGraph()
         call_graph.createHTML()
+
+    if (args["SunBurst"] == True):
+        sunburst = vs.SunBurstVisualization(project_path)
+        sunburst.createHTML()
 
 
 if __name__ == "__main__":
