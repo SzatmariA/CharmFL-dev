@@ -8,15 +8,13 @@ from testing.Use_PyTest import Use_Pytest
 from faultloc.Spectra import Spectra
 from faultloc.Metrics import Metrics
 from utils.Result_Builder import Result_Builder
+from call_graphs.statical_call_graph import StaticalCallGraph
 
 
 #import call_graphs.statical_call_graph as cg
 
 from constans import COVERAGE_RC_FILE_NAME
 from error_codes import FAILED_COPY_COVERAGE_RC_FILE, FAILED_WRITE_PROJECT_COVERAGE_RC_FILE
-
-
-# from call_graph_maker import make_call_graph
 
 # logging.basicConfig(filename='charmfl.log', level=logging.INFO, format='%(levelname)s:%(filename)s:%(lineno)d:%(message)s')
 
@@ -76,8 +74,8 @@ def main():
             output.write(result_builder.toJSON())
 
     if (args["CallGraph"] == True):
-        call_graph = cg.StaticalCallGraph()
-        call_graph.createHTML()
+        call_graph = StaticalCallGraph(project_path)
+        call_graph.make_call_graph()
 
 
 if __name__ == "__main__":

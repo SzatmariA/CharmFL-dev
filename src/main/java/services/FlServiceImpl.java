@@ -9,6 +9,7 @@ import com.intellij.openapi.fileEditor.FileEditorManagerListener;
 import com.intellij.openapi.project.Project;
 import com.intellij.util.messages.MessageBus;
 import models.bean.*;
+import modules.PluginModule;
 import org.jetbrains.annotations.NotNull;
 
 import org.apache.commons.lang3.SystemUtils;
@@ -28,18 +29,18 @@ public class FlServiceImpl {
 
     /**
      * This calls the subprocess of executing the call graph
-     * @param callGraphScriptName
-     * @param projectPath
-     * @param mainFileName
      * @param pythonBinPath
+     * @param pyflPath
+     * @param projectPath
      * @return
      */
-    public ProcessResultData executeCallGraph(String callGraphScriptName, String projectPath, Object mainFileName, String pythonBinPath) {
+    public ProcessResultData executeCallGraph(String pythonBinPath, String pyflPath, String projectPath) {
         String command = "";
         if (SystemUtils.IS_OS_WINDOWS) {
-            command = "\"" + pythonBinPath + "\" " + "\"" + callGraphScriptName + "\" " + "\"" + projectPath + "\" " + "\"" + mainFileName + "\" " + " -cg";
+            command = "\"" + pythonBinPath + "\" " +
+                    "\"" + pyflPath + "\" -d " +
+                    "\"" + projectPath + "\"" + " -cg";
     }
-
         return executeCommand(command);
     }
 

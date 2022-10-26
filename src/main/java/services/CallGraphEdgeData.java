@@ -18,7 +18,6 @@ public class CallGraphEdgeData {
         String pythonBinPath = ProjectRootManager.getInstance(ProjectModule.getProject()).getProjectSdk().getHomePath();
         PluginModule.setPythonBinPath(pythonBinPath);
         String command = PluginModule.getPythonBinPath() + " " + PluginModule.getCallGraphEdges() +
-                " " + ProjectModule.getProjectPath() + File.separator + "**/*.py" +
                 " " + ProjectModule.getProjectPath() + " " + nodeName;
         ProcessService.executeCommand(command);
     }

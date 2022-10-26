@@ -46,14 +46,13 @@ class Highlighted_Callgraph:
 
     def __add_highlight_to_data(self, project_path, solution_node):
         graph_file_path = project_path + "/static_call_graph.html"
-        highlighted_graph = project_path + "/static_call_graph_highlighted.html"
         call_graph_start_file = open(graph_file_path, 'r')
         read_file = call_graph_start_file.read()
         new_data = read_file[:-66]
         new_data = new_data + solution_node
         new_data = new_data + read_file[-66:]
         call_graph_start_file.close()
-        call_graph_end_file = open(highlighted_graph, 'w')
+        call_graph_end_file = open(graph_file_path, 'w')
         call_graph_end_file.write(new_data)
         call_graph_end_file.close()
 
@@ -70,6 +69,6 @@ class Highlighted_Callgraph:
         if call_graph_file_path.is_file():
             self.__call_functions(self.project_path, self.node)
         else:
-            problem_with_the_file = open(self.project_path + "/static_call_graph_highlighted.html", 'w')
+            problem_with_the_file = open(self.project_path + "/static_call_graph.html", 'w')
             problem_with_the_file.write("<!DOCTYPE html><html><head><style>h1 {color: red;}</style></head><body><h1>First run the Start Call Graph</h1></body></html>")
             problem_with_the_file.close()

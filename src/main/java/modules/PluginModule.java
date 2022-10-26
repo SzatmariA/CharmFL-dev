@@ -19,8 +19,7 @@ public class PluginModule {
     private static String checkPipBinPath = "";
     private static final String PYTHON_SCRIPTS_FOLDER_NAME = "Scripts";
 
-    private static final String CALL_GRAPH_SCRIPT_NAME = "call_graph_maker.py";
-    private static final String CALL_ADD_HIGHLIGHT_TO_GRAPH_SCRIPT_NAME = "call_graph_highlight.py";
+    private static final String CALL_ADD_HIGHLIGHT_TO_GRAPH_SCRIPT_NAME = "call_graphs/call_graph_highlight.py";
 
     private static final String CALL_GRAPH_EDGES = "call_graphs/call_graph_edges.py";
     private static String pythonBinPath;
@@ -59,6 +58,7 @@ public class PluginModule {
 
     /**
      * Gets the installed charmfl's plugin name
+     *
      * @return the plugin name
      */
     public static String getPluginName() {
@@ -67,6 +67,7 @@ public class PluginModule {
 
     /**
      * Gets the installed charmfl's plugin id
+     *
      * @return the plugin id
      */
     public static String getPluginId() {
@@ -74,15 +75,8 @@ public class PluginModule {
     }
 
     /**
-     * Gets the call graph generator scripts path
-     * @return pathToInstalledCharmFL/call_graphs/call_graph_maker.py
-     */
-    public static String getCallGraphScriptName() {
-        return pluginPath + File.separator + CALL_GRAPH_SCRIPT_NAME;
-    }
-
-    /**
      * Gets the call graph edge retriever scripts path
+     *
      * @return pathToInstalledCharmFL/call_graphs/call_graph_edges.py
      */
     public static String getCallGraphEdges() {
@@ -91,6 +85,7 @@ public class PluginModule {
 
     /**
      * Gets the call graph highlighter scripts path
+     *
      * @return pathToInstalledCharmFL/call_graphs/call_graph_highlight.py
      */
     public static String callAddHighlightToGraphScriptName() {
@@ -99,6 +94,7 @@ public class PluginModule {
 
     /**
      * Gets the path of the installed charmfl's plugin main.py (backend)
+     *
      * @return the path to main.py
      */
     public static String getPyflBinPath() {
@@ -107,6 +103,7 @@ public class PluginModule {
 
     /**
      * Gets the path of the installed charmfl's plugin check_pip.py (checking requirements)
+     *
      * @return the path to main.py
      */
     public static String getCheckPipBinPath() {
@@ -120,6 +117,7 @@ public class PluginModule {
 
     /**
      * Returns the path of pip script
+     *
      * @return path
      */
     public static String getPipBinPath() {
@@ -128,6 +126,7 @@ public class PluginModule {
 
     /**
      * Returns the requirements.txt
+     *
      * @return path and filename
      */
     public static String getRequirementsFilePath() {
@@ -136,6 +135,7 @@ public class PluginModule {
 
     /**
      * Returns the results json's name
+     *
      * @return name
      */
     public static final String getResultsJsonFileName() {
@@ -148,6 +148,7 @@ public class PluginModule {
 
     /**
      * Returns whether Tarantula score calculation is the selected approach
+     *
      * @return true if tarantula is selected
      */
     public static boolean isTarantulaSelected() {
@@ -160,6 +161,7 @@ public class PluginModule {
 
     /**
      * Returns whether Ochiai score calculation is the selected approach
+     *
      * @return true if ochiai is selected
      */
     public static boolean isOchiaiSelected() {
@@ -172,6 +174,7 @@ public class PluginModule {
 
     /**
      * Returns whether Dstar score calculation is the selected approach
+     *
      * @return true if dstar is selected
      */
     public static boolean isDStarSelected() {
@@ -184,6 +187,7 @@ public class PluginModule {
 
     /**
      * Returns whether Wong2 score calculation is the selected approach
+     *
      * @return true if tarantula is selected
      */
     public static boolean isWongIISelected() {
@@ -196,6 +200,7 @@ public class PluginModule {
 
     /**
      * Ranking approach
+     *
      * @return true if maximum ranking is selected
      */
     public static boolean isMaximumSelected() {
@@ -208,6 +213,7 @@ public class PluginModule {
 
     /**
      * Ranking approach
+     *
      * @return true if minimum ranking is selected
      */
     public static boolean isMinimumSelected() {
@@ -220,6 +226,7 @@ public class PluginModule {
 
     /**
      * Ranking approach
+     *
      * @return true if average ranking is selected
      */
     public static boolean isAverageSelected() {
