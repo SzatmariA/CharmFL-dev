@@ -11,7 +11,7 @@ from utils.Result_Builder import Result_Builder
 from call_graphs.statical_call_graph import StaticalCallGraph
 
 
-import call_graphs.statical_call_graph as cg
+#import call_graphs.statical_call_graph as cg
 
 from constans import COVERAGE_RC_FILE_NAME
 from error_codes import FAILED_COPY_COVERAGE_RC_FILE, FAILED_WRITE_PROJECT_COVERAGE_RC_FILE
@@ -56,7 +56,6 @@ def main():
         line_metrics.create_scores_from(line_spectra)
         method_cov.set_base_coverage(line_cov) \
             .make_coverage_with_context()
-        print(method_cov.get_coverage_with_context())
         class_cov.set_base_coverage(line_cov) \
             .make_coverage_with_context()
         method_spectra.create_spectrum_from(method_cov, tests)
